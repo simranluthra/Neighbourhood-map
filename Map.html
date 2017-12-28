@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Neighbourhood Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- user defined external css -->
+    <link rel="stylesheet" href="CSS/Map.css">
+    <!-- cloudflare Css for arrow icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <!-- jquery file -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- cloudflare javascript file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <!-- bootstrap javascript file -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="content">
+      <aside id="title" class="fixed-top col-md-4 col-xd-8">
+          <nav class="navbar navbar-inverse bg-inverse  bg-dark">
+            <h5 class="text-right text-white">Neighbourhood Map </h5>
+            <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation">
+              <span class="text-white">Options </span>
+              <i class="fa fa-angle-down text-white"></i>
+            </button>
+          </nav>
+          <div class="collapse" id="navbarToggleExternalContent">
+            <div class="bg-inverse bg-dark p-4">
+              <input class="h5" id="SearchBar" placeholder="Search" data-bind="value: searchPlace, valueUpdate: 'afterkeydown' ,event: {keyup: search}" />
+              <hr>
+              <ul class="text-white" data-bind="foreach: markers">
+                <!-- ko if: show -->
+                <li class="h6 pb-2" id="favourites" data-bind="text: name,click: setSelected"></li>
+                <!-- /ko -->
+              </ul>
+            </div>
+          </div>
+      </aside>
+      <div id="map"></div>
+    </div>
+    <script src="js/knockout.js"></script>
+    <script src="js/Map.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?&key=AIzaSyA1ZCBjadji0tYOGoDyk2HW8wJR42c8IVc&v=3&callback=initMap" onerror="error()">
+    </script>
+  </body>
+</html>
